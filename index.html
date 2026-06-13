@@ -16,22 +16,46 @@
   body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
   canvas#stars{position:fixed;inset:0;z-index:0}
   .wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px}
+
+  /* INTRO / GATE */
+  #gate{position:fixed;inset:0;z-index:50;background:radial-gradient(circle at 50% 40%,#11132a 0%,#06060d 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:opacity .8s ease, visibility .8s ease;padding:24px}
+  #gate.hide{opacity:0;visibility:hidden}
+  #gate .welcome{font-size:.8rem;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+  #gate h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;margin-bottom:10px}
+  #gate h1 .grad{background:linear-gradient(90deg,var(--blue),var(--purple),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  #gate .q{color:var(--muted);margin-bottom:42px;font-size:1.05rem}
+  .roles{display:flex;gap:26px;flex-wrap:wrap;justify-content:center}
+  .role{cursor:pointer;width:150px;display:flex;flex-direction:column;align-items:center;gap:14px;opacity:.75;transition:.25s}
+  .role:hover{opacity:1;transform:translateY(-6px)}
+  .role .av{width:130px;height:130px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:3.4rem;border:2px solid transparent;transition:.25s;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+  .role:hover .av{border-color:#fff}
+  .role.r1 .av{background:linear-gradient(145deg,#3db8ff,#1e6fd0)}
+  .role.r2 .av{background:linear-gradient(145deg,#9b6bff,#5e35c0)}
+  .role.r3 .av{background:linear-gradient(145deg,#ff9f43,#e06a1a)}
+  .role.r4 .av{background:linear-gradient(145deg,#ff5e57,#c0273a)}
+  .role span{color:var(--muted);font-size:1rem;font-weight:600}
+  .role:hover span{color:var(--text)}
+  #gate .hint{margin-top:34px;color:#5a607a;font-size:.82rem}
+
   nav{position:fixed;top:0;left:0;right:0;z-index:10;backdrop-filter:blur(10px);background:rgba(10,10,18,.6);border-bottom:1px solid var(--border)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
   .logo{font-weight:700;font-size:1.1rem;background:linear-gradient(90deg,var(--blue),var(--purple),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .navlinks a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:.92rem;transition:.2s}
   .navlinks a:hover{color:var(--text)}
-  #music{background:none;border:1px solid var(--border);color:var(--text);border-radius:20px;padding:6px 14px;cursor:pointer;font-size:.85rem;margin-left:22px;transition:.2s}
-  #music:hover{border-color:var(--blue)}
+  #mute{background:none;border:1px solid var(--border);color:var(--muted);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:.9rem;margin-left:22px;transition:.2s;line-height:1}
+  #mute:hover{border-color:var(--blue);color:var(--text)}
+
   header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;text-align:center}
   .tag{display:inline-block;border:1px solid var(--border);border-radius:30px;padding:6px 16px;font-size:.82rem;color:var(--blue);margin-bottom:24px}
-  h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.1;margin-bottom:16px}
-  h1 span{background:linear-gradient(90deg,var(--blue),var(--purple),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  h1.hero{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.1;margin-bottom:16px}
+  h1.hero span{background:linear-gradient(90deg,var(--blue),var(--purple),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .sub{font-size:clamp(1rem,2.5vw,1.35rem);color:var(--muted);max-width:640px;margin:0 auto 32px}
   .cta a{display:inline-block;margin:6px;padding:12px 26px;border-radius:30px;text-decoration:none;font-weight:600;transition:.2s}
   .cta .primary{background:linear-gradient(90deg,var(--blue),var(--purple));color:#fff}
   .cta .ghost{border:1px solid var(--border);color:var(--text)}
   .cta a:hover{transform:translateY(-2px)}
+  #greet{display:inline-block;margin-bottom:18px;font-size:.95rem;color:var(--orange);font-weight:600}
+
   section{padding:90px 0}
   .label{color:var(--orange);font-weight:600;letter-spacing:2px;font-size:.8rem;text-transform:uppercase;margin-bottom:10px}
   h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:18px}
@@ -55,11 +79,26 @@
   .link-card h4{font-size:1.1rem;margin-bottom:4px}
   .link-card p{color:var(--muted);font-size:.88rem}
   footer{text-align:center;padding:50px 0;color:var(--muted);font-size:.88rem;border-top:1px solid var(--border)}
-  @media(max-width:760px){.journey{grid-template-columns:1fr}.navlinks{display:none}}
+  @media(max-width:760px){.journey{grid-template-columns:1fr}.navlinks{display:none}.role{width:120px}.role .av{width:104px;height:104px;font-size:2.6rem}}
 </style>
 </head>
 <body>
 <canvas id="stars"></canvas>
+
+<!-- Netflix-style role gate -->
+<div id="gate">
+  <div class="welcome">Welcome to my world</div>
+  <h1>Who's <span class="grad">exploring</span> today?</h1>
+  <p class="q">Pick a profile — I'll tailor the experience for you.</p>
+  <div class="roles">
+    <div class="role r1" data-role="Recruiter"><div class="av">👔</div><span>Recruiter</span></div>
+    <div class="role r2" data-role="Builder"><div class="av">🛠️</div><span>Builder</span></div>
+    <div class="role r3" data-role="Visitor"><div class="av">👋</div><span>Visitor</span></div>
+    <div class="role r4" data-role="Adventurer"><div class="av">🧭</div><span>Adventurer</span></div>
+  </div>
+  <div class="hint">🎵 Selecting a profile starts a little background music</div>
+</div>
+
 <nav><div class="wrap">
   <div class="logo">Pavan Kalyan K</div>
   <div style="display:flex;align-items:center">
@@ -69,23 +108,27 @@
       <a href="#knowledge">Knowledge Base</a>
       <a href="#connect">Connect</a>
     </div>
-    <button id="music">🔇 Music</button>
+    <button id="mute" title="Mute / unmute music">🔊</button>
   </div>
 </div></nav>
+
 <header><div class="wrap">
+  <span id="greet"></span>
   <span class="tag">Open to Work · DevOps & AI/ML Focused</span>
-  <h1>Building, testing &<br><span>always learning</span></h1>
+  <h1 class="hero">Building, testing &<br><span>always learning</span></h1>
   <p class="sub">I'm Pavan — an engineer with a strong quality-engineering foundation, now diving deep into DevOps and AI/ML. This is my portfolio and a growing knowledge base of what I learn.</p>
   <div class="cta">
     <a class="primary" href="#connect">Get in touch</a>
     <a class="ghost" href="#knowledge">Read my writing</a>
   </div>
 </div></header>
+
 <section id="about"><div class="wrap">
   <div class="label">About</div>
   <h2>From quality engineering to the full stack of modern infra</h2>
   <p class="lead">Over 4.5 years I built deep expertise in software testing and quality engineering — automation, API testing, performance, and reliability. Today I'm channeling that engineering rigor into the areas shaping the future: DevOps automation and AI/ML tooling. I write about everything I learn so others can learn faster too.</p>
 </div></section>
+
 <section id="journey"><div class="wrap">
   <div class="label">My Journey</div>
   <h2>Foundations → Exploring → Building toward</h2>
@@ -114,6 +157,7 @@
     </div>
   </div>
 </div></section>
+
 <section id="knowledge"><div class="wrap">
   <div class="label">Knowledge Base</div>
   <h2>Where I share what I learn</h2>
@@ -130,6 +174,7 @@
     </a>
   </div>
 </div></section>
+
 <section id="connect"><div class="wrap">
   <div class="label">Connect</div>
   <h2>Let's build something together</h2>
@@ -146,19 +191,52 @@
     </a>
   </div>
 </div></section>
+
 <footer>© <span id="yr"></span> Pavan Kalyan K · Built with curiosity 🚀</footer>
+
 <audio id="bg" loop>
   <source src="music.mp3" type="audio/mpeg" />
 </audio>
+
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-  const audio=document.getElementById('bg'), btn=document.getElementById('music');
-  let playing=false;
-  btn.addEventListener('click',()=>{
-    if(playing){audio.pause();btn.textContent='🔇 Music';}
-    else{audio.play().catch(()=>{});btn.textContent='🔊 Music';}
-    playing=!playing;
+  const audio=document.getElementById('bg'), mute=document.getElementById('mute'), gate=document.getElementById('gate'), greet=document.getElementById('greet');
+
+  const greetings = {
+    Recruiter: "👔 Welcome, recruiter — here's the quick tour.",
+    Builder: "🛠️ Hey builder — dive into the code & projects.",
+    Visitor: "👋 Glad you stopped by — enjoy the journey.",
+    Adventurer: "🧭 Adventurer mode on — explore freely!"
+  };
+
+  function pickRole(role){
+    // record locally + count
+    try{
+      localStorage.setItem('pk_role', role);
+      const counts = JSON.parse(localStorage.getItem('pk_role_counts')||'{}');
+      counts[role]=(counts[role]||0)+1;
+      localStorage.setItem('pk_role_counts', JSON.stringify(counts));
+    }catch(e){}
+    greet.textContent = greetings[role] || '';
+    // start music (allowed — inside a user click)
+    audio.volume=0.35;
+    audio.play().catch(()=>{});
+    mute.textContent='🔊';
+    gate.classList.add('hide');
+    setTimeout(()=>{ gate.style.display='none'; }, 850);
+  }
+
+  document.querySelectorAll('.role').forEach(r=>{
+    r.addEventListener('click',()=>pickRole(r.getAttribute('data-role')));
   });
+
+  // Mute toggle
+  let muted=false;
+  mute.addEventListener('click',()=>{
+    muted=!muted; audio.muted=muted; mute.textContent = muted ? '🔇' : '🔊';
+  });
+
+  // Constellation starfield
   const c=document.getElementById('stars'), x=c.getContext('2d');
   let w,h,stars;
   const COLORS=['#3db8ff','#9b6bff','#ff9f43','#ff5e57','#ffffff'];
