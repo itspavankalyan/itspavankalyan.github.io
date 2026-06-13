@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pavan Kalyan K | Tech Knowledge Base & Portfolio</title>
+<meta name="description" content="Pavan Kalyan K — Engineer exploring DevOps and AI/ML. Portfolio and tech knowledge base." />
+<style>
+  :root{
+    --bg:#0a0a12; --bg2:#0d1020;
+    --blue:#3db8ff; --purple:#9b6bff; --orange:#ff9f43; --red:#ff5e57;
+    --text:#e8eaf0; --muted:#9aa0b5; --card:rgba(255,255,255,.04); --border:rgba(255,255,255,.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+  canvas#stars{position:fixed;inset:0;z-index:0}
+  .wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px}
+  nav{position:fixed;top:0;left:0;right:0;z-index:10;backdrop-filter:blur(10px);background:rgba(10,10,18,.6);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+  .logo{font-weight:700;font-size:1.1rem;background:linear-gradient(90deg,var(--blue),var(--purple),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .navlinks a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:.92rem;transition:.2s}
+  .navlinks a:hover{color:var(--text)}
+  #music{background:none;border:1px solid var(--border);color:var(--text);border-radius:20px;padding:6px 14px;cursor:pointer;font-size:.85rem;margin-left:22px;transition:.2s}
+  #music:hover{border-color:var(--blue)}
+  header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;text-align:center}
+  .tag{display:inline-block;border:1px solid var(--border);border-radius:30px;padding:6px 16px;font-size:.82rem;color:var(--blue);margin-bottom:24px}
+  h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.1;margin-bottom:16px}
+  h1 span{background:linear-gradient(90deg,var(--blue),var(--purple),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{font-size:clamp(1rem,2.5vw,1.35rem);color:var(--muted);max-width:640px;margin:0 auto 32px}
+  .cta a{display:inline-block;margin:6px;padding:12px 26px;border-radius:30px;text-decoration:none;font-weight:600;transition:.2s}
+  .cta .primary{background:linear-gradient(90deg,var(--blue),var(--purple));color:#fff}
+  .cta .ghost{border:1px solid var(--border);color:var(--text)}
+  .cta a:hover{transform:translateY(-2px)}
+  section{padding:90px 0}
+  .label{color:var(--orange);font-weight:600;letter-spacing:2px;font-size:.8rem;text-transform:uppercase;margin-bottom:10px}
+  h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:18px}
+  .lead{color:var(--muted);max-width:700px;margin-bottom:40px}
+  .journey{display:grid;gap:22px;grid-template-columns:repeat(3,1fr)}
+  .stage{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:.25s;position:relative;overflow:hidden}
+  .stage:hover{transform:translateY(-4px);border-color:var(--blue)}
+  .stage .ico{font-size:2rem;margin-bottom:14px}
+  .stage h3{font-size:1.25rem;margin-bottom:6px}
+  .stage .status{font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:14px}
+  .s-done{background:rgba(61,184,255,.15);color:var(--blue)}
+  .s-now{background:rgba(255,159,67,.15);color:var(--orange)}
+  .s-next{background:rgba(155,107,255,.15);color:var(--purple)}
+  .stage p{color:var(--muted);font-size:.95rem;margin-bottom:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chips span{font-size:.78rem;background:rgba(255,255,255,.06);border:1px solid var(--border);padding:4px 10px;border-radius:12px;color:var(--text)}
+  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .link-card{display:block;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;text-decoration:none;color:var(--text);transition:.25s}
+  .link-card:hover{transform:translateY(-4px);border-color:var(--purple);background:rgba(155,107,255,.06)}
+  .link-card .ci{font-size:1.7rem;margin-bottom:10px}
+  .link-card h4{font-size:1.1rem;margin-bottom:4px}
+  .link-card p{color:var(--muted);font-size:.88rem}
+  footer{text-align:center;padding:50px 0;color:var(--muted);font-size:.88rem;border-top:1px solid var(--border)}
+  @media(max-width:760px){.journey{grid-template-columns:1fr}.navlinks{display:none}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<nav><div class="wrap">
+  <div class="logo">Pavan Kalyan K</div>
+  <div style="display:flex;align-items:center">
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#journey">Journey</a>
+      <a href="#knowledge">Knowledge Base</a>
+      <a href="#connect">Connect</a>
+    </div>
+    <button id="music">🔇 Music</button>
+  </div>
+</div></nav>
+<header><div class="wrap">
+  <span class="tag">Open to Work · DevOps & AI/ML Focused</span>
+  <h1>Building, testing &<br><span>always learning</span></h1>
+  <p class="sub">I'm Pavan — an engineer with a strong quality-engineering foundation, now diving deep into DevOps and AI/ML. This is my portfolio and a growing knowledge base of what I learn.</p>
+  <div class="cta">
+    <a class="primary" href="#connect">Get in touch</a>
+    <a class="ghost" href="#knowledge">Read my writing</a>
+  </div>
+</div></header>
+<section id="about"><div class="wrap">
+  <div class="label">About</div>
+  <h2>From quality engineering to the full stack of modern infra</h2>
+  <p class="lead">Over 4.5 years I built deep expertise in software testing and quality engineering — automation, API testing, performance, and reliability. Today I'm channeling that engineering rigor into the areas shaping the future: DevOps automation and AI/ML tooling. I write about everything I learn so others can learn faster too.</p>
+</div></section>
+<section id="journey"><div class="wrap">
+  <div class="label">My Journey</div>
+  <h2>Foundations → Exploring → Building toward</h2>
+  <p class="lead">A continuous-learning path: where I've built mastery, what I'm exploring now, and where I'm headed next.</p>
+  <div class="journey">
+    <div class="stage">
+      <div class="ico">🧩</div>
+      <h3>Foundations</h3>
+      <span class="status s-done">Mastered</span>
+      <p>Quality & automation engineering — building reliable, well-tested systems.</p>
+      <div class="chips"><span>Java</span><span>Selenium</span><span>Rest-Assured</span><span>API Testing</span><span>JMeter</span><span>SQL</span></div>
+    </div>
+    <div class="stage">
+      <div class="ico">⚙️</div>
+      <h3>Currently Exploring</h3>
+      <span class="status s-now">Learning now</span>
+      <p>DevOps — automating delivery, infrastructure, and reliability at scale.</p>
+      <div class="chips"><span>Docker</span><span>Kubernetes</span><span>CI/CD</span><span>Cloud</span><span>Linux</span><span>IaC</span></div>
+    </div>
+    <div class="stage">
+      <div class="ico">🤖</div>
+      <h3>Building Toward</h3>
+      <span class="status s-next">Next up</span>
+      <p>AI/ML tools — understanding the models and tooling driving the next wave.</p>
+      <div class="chips"><span>LLMs</span><span>Prompt Eng</span><span>RAG</span><span>ML Tools</span><span>Python</span><span>AI Agents</span></div>
+    </div>
+  </div>
+</div></section>
+<section id="knowledge"><div class="wrap">
+  <div class="label">Knowledge Base</div>
+  <h2>Where I share what I learn</h2>
+  <p class="lead">Articles, notes, and code as I explore DevOps and AI/ML. Follow along.</p>
+  <div class="grid">
+    <a class="link-card" href="https://medium.com/@pavankalyanhp" target="_blank" rel="noopener">
+      <div class="ci">✍️</div><h4>Medium</h4><p>Long-form articles & tutorials</p>
+    </a>
+    <a class="link-card" href="https://substack.com/@pavankalyank" target="_blank" rel="noopener">
+      <div class="ci">📰</div><h4>Substack</h4><p>Newsletter & deep dives</p>
+    </a>
+    <a class="link-card" href="https://github.com/pk123456r" target="_blank" rel="noopener">
+      <div class="ci">💻</div><h4>GitHub</h4><p>Projects & code experiments</p>
+    </a>
+  </div>
+</div></section>
+<section id="connect"><div class="wrap">
+  <div class="label">Connect</div>
+  <h2>Let's build something together</h2>
+  <p class="lead">Open to opportunities and conversations in QA, DevOps, and AI/ML.</p>
+  <div class="grid">
+    <a class="link-card" href="https://www.linkedin.com/in/k-pavan-kalyan/" target="_blank" rel="noopener">
+      <div class="ci">🔗</div><h4>LinkedIn</h4><p>Professional profile</p>
+    </a>
+    <a class="link-card" href="https://topmate.io/pavan_kalyan_k10/" target="_blank" rel="noopener">
+      <div class="ci">📅</div><h4>Topmate</h4><p>Book a 1:1 session</p>
+    </a>
+    <a class="link-card" href="https://github.com/pk123456r" target="_blank" rel="noopener">
+      <div class="ci">🐙</div><h4>GitHub</h4><p>See my code</p>
+    </a>
+  </div>
+</div></section>
+<footer>© <span id="yr"></span> Pavan Kalyan K · Built with curiosity 🚀</footer>
+<audio id="bg" loop>
+  <source src="music.mp3" type="audio/mpeg" />
+</audio>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const audio=document.getElementById('bg'), btn=document.getElementById('music');
+  let playing=false;
+  btn.addEventListener('click',()=>{
+    if(playing){audio.pause();btn.textContent='🔇 Music';}
+    else{audio.play().catch(()=>{});btn.textContent='🔊 Music';}
+    playing=!playing;
+  });
+  const c=document.getElementById('stars'), x=c.getContext('2d');
+  let w,h,stars;
+  const COLORS=['#3db8ff','#9b6bff','#ff9f43','#ff5e57','#ffffff'];
+  function init(){
+    w=c.width=innerWidth; h=c.height=innerHeight;
+    stars=Array.from({length:Math.min(140,Math.floor(w*h/12000))},()=>({
+      x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.6+0.4,
+      vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,
+      col:COLORS[Math.floor(Math.random()*COLORS.length)]
+    }));
+  }
+  function draw(){
+    x.clearRect(0,0,w,h);
+    for(let i=0;i<stars.length;i++){
+      const s=stars[i];
+      s.x+=s.vx; s.y+=s.vy;
+      if(s.x<0||s.x>w)s.vx*=-1; if(s.y<0||s.y>h)s.vy*=-1;
+      x.beginPath(); x.arc(s.x,s.y,s.r,0,7); x.fillStyle=s.col; x.globalAlpha=.9; x.fill();
+      for(let j=i+1;j<stars.length;j++){
+        const o=stars[j], dx=s.x-o.x, dy=s.y-o.y, d=Math.hypot(dx,dy);
+        if(d<120){x.globalAlpha=(1-d/120)*.18;x.strokeStyle=s.col;x.lineWidth=.6;
+          x.beginPath();x.moveTo(s.x,s.y);x.lineTo(o.x,o.y);x.stroke();}
+      }
+    }
+    x.globalAlpha=1;
+    requestAnimationFrame(draw);
+  }
+  addEventListener('resize',init); init(); draw();
+</script>
+</body>
+</html>
