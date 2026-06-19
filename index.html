@@ -6,18 +6,13 @@
 <title>Pavan Kalyan K | Portfolio</title>
 <meta name="description" content="Pavan Kalyan K — Engineer exploring DevOps and AI/ML. Portfolio and tech knowledge base." />
 <style>
-:root{
-  --bg:#0a0a12; --bg2:#0d1020;
-  --blue:#3db8ff; --purple:#9b6bff; --orange:#ff9f43; --red:#ff5e57;
-  --text:#e8eaf0; --muted:#9aa0b5; --card:rgba(255,255,255,.04); --border:rgba(255,255,255,.08);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+:root{--bg:#0a0a12;--bg2:#0d1020;--blue:#3db8ff;--purple:#9b6bff;--orange:#ff9f43;--red:#ff5e57;--text:#e8eaf0;--muted:#9aa0b5;--card:rgba(255,255,255,.04);--border:rgba(255,255,255,.08)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
 canvas#stars{position:fixed;inset:0;z-index:0}
 .wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px}
 #progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--purple),var(--orange));width:0%;z-index:100;transition:width .1s linear}
-#gate{position:fixed;inset:0;z-index:50;background:radial-gradient(circle at 50% 40%,#11132a 0%,#06060d 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:opacity .8s ease, visibility .8s ease;padding:24px}
+#gate{position:fixed;inset:0;z-index:50;background:radial-gradient(circle at 50% 40%,#11132a 0%,#06060d 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:opacity .8s ease,visibility .8s ease;padding:24px}
 #gate.hide{opacity:0;visibility:hidden;pointer-events:none}
 #gate .welcome{font-size:.8rem;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
 #gate h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;margin-bottom:10px}
@@ -41,9 +36,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:
 .logo{font-weight:700;font-size:1.1rem;background:linear-gradient(90deg,var(--blue),var(--purple),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer;text-decoration:none}
 .navlinks a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:.92rem;transition:.2s;position:relative;padding-bottom:4px}
 .navlinks a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--purple));transition:.3s}
-.navlinks a:hover{color:var(--text)}
-.navlinks a:hover::after,.navlinks a.active::after{width:100%}
-.navlinks a.active{color:var(--text)}
+.navlinks a:hover{color:var(--text)}.navlinks a:hover::after,.navlinks a.active::after{width:100%}.navlinks a.active{color:var(--text)}
 #mute{background:none;border:1px solid var(--border);color:var(--muted);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:.9rem;margin-left:22px;transition:.2s;line-height:1}
 #mute:hover{border-color:var(--blue);color:var(--text)}
 header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding-top:80px}
@@ -61,20 +54,19 @@ h1.hero span{background:linear-gradient(90deg,var(--blue),var(--purple),var(--or
 .social-links a{display:flex;align-items:center;gap:8px;color:var(--muted);text-decoration:none;font-size:.9rem;border:1px solid var(--border);padding:8px 16px;border-radius:30px;transition:.2s}
 .social-links a:hover{color:var(--text);border-color:var(--blue);transform:translateY(-2px)}
 section{padding:90px 0}
-.section-reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease, transform .6s ease}
+.section-reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
 .section-reveal.visible{opacity:1;transform:translateY(0)}
 .label{color:var(--orange);font-weight:600;letter-spacing:2px;font-size:.8rem;text-transform:uppercase;margin-bottom:10px}
 h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:18px}
 .lead{color:var(--muted);max-width:700px;margin-bottom:40px}
 .stats{display:flex;gap:40px;margin-bottom:48px;flex-wrap:wrap}
-.stat{text-align:center}
 .stat-num{font-size:2rem;font-weight:800;background:linear-gradient(90deg,var(--blue),var(--purple));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .stat-label{font-size:.82rem;color:var(--muted);margin-top:4px}
 .skills-grid{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
 .skill-badge{font-size:.82rem;background:var(--card);border:1px solid var(--border);padding:6px 14px;border-radius:20px;color:var(--text);transition:.2s;cursor:default}
 .skill-badge:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
 .journey{display:grid;gap:22px;grid-template-columns:repeat(3,1fr)}
-.stage{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:.25s;position:relative;overflow:hidden}
+.stage{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:.25s}
 .stage:hover{transform:translateY(-4px);border-color:var(--blue)}
 .stage .ico{font-size:2rem;margin-bottom:14px}
 .stage h3{font-size:1.25rem;margin-bottom:6px}
@@ -114,19 +106,17 @@ footer{text-align:center;padding:50px 0;color:var(--muted);font-size:.88rem;bord
 .footer-links a:hover{color:var(--text)}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 #back-top{position:fixed;bottom:28px;right:28px;z-index:20;background:var(--card);border:1px solid var(--border);border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:.3s;font-size:1.1rem;color:var(--muted)}
-#back-top.show{opacity:1}
-#back-top:hover{border-color:var(--blue);color:var(--text)}
+#back-top.show{opacity:1}#back-top:hover{border-color:var(--blue);color:var(--text)}
 @media(max-width:760px){.journey{grid-template-columns:1fr}.navlinks{display:none}.role{width:120px}.role .av{width:104px;height:104px;font-size:2.6rem}.contact-grid{grid-template-columns:1fr}.stats{gap:24px}}
 </style>
 </head>
 <body>
 <canvas id="stars"></canvas>
 <div id="progress-bar"></div>
-
 <div id="gate">
-<div class="welcome">Pavan Kalyan K — Portfolio</div>
+<div class="welcome">Pavan Kalyan K &mdash; Portfolio</div>
 <h1>Who's <span class="grad">exploring</span> today?</h1>
-<p class="q">Pick a profile — I'll tailor the experience for you.</p>
+<p class="q">Pick a profile &mdash; I'll tailor the experience for you.</p>
 <div class="roles">
 <div class="role r1" data-role="Recruiter"><div class="av">&#x1F454;</div><span>Recruiter</span></div>
 <div class="role r2" data-role="Builder"><div class="av">&#x1F6E0;&#xFE0F;</div><span>Builder</span></div>
@@ -135,9 +125,8 @@ footer{text-align:center;padding:50px 0;color:var(--muted);font-size:.88rem;bord
 </div>
 <div class="hint">Choose a profile to personalise your visit.</div>
 </div>
-
 <nav id="navbar"><div class="wrap">
-<a class="logo" id="logo-home" href="#" title="Back to start">Pavan Kalyan K</a>
+<a class="logo" id="logo-home" href="#">Pavan Kalyan K</a>
 <div style="display:flex;align-items:center">
 <div class="navlinks">
 <a href="#about">About</a>
@@ -145,10 +134,9 @@ footer{text-align:center;padding:50px 0;color:var(--muted);font-size:.88rem;bord
 <a href="#knowledge">Knowledge Base</a>
 <a href="#connect">Connect</a>
 </div>
-<button id="mute" title="Mute / unmute music">&#x1F50A;</button>
+<button id="mute" title="Mute / unmute">&#x1F50A;</button>
 </div>
 </div></nav>
-
 <header id="home"><div class="wrap">
 <span id="greet"></span>
 <span class="tag">Open to Work &middot; DevOps &amp; AI/ML Focused</span>
@@ -159,15 +147,14 @@ footer{text-align:center;padding:50px 0;color:var(--muted);font-size:.88rem;bord
 <a href="#connect" class="ghost">Get in touch</a>
 </div>
 <div class="social-links">
-<a href="https://github.com/itspavankalyan" target="_blank">&#9095; GitHub</a>
-<a href="https://linkedin.com/in/pavankalyan" target="_blank">&#9672; LinkedIn</a>
+<a href="https://github.com/itspavankalyan" target="_blank">GitHub</a>
+<a href="https://linkedin.com/in/pavankalyan" target="_blank">LinkedIn</a>
 </div>
 </div></header>
-
 <section id="about"><div class="wrap section-reveal">
 <div class="label">01 / about</div>
 <h2>A bit about me</h2>
-<p class="lead">I'm a software engineer with roots in quality engineering who's now fully committed to DevOps and AI/ML. I build things that are reliable, observable, and actually useful.</p>
+<p class="lead">I'm a software engineer with roots in quality engineering now fully committed to DevOps and AI/ML. I build things that are reliable, observable, and actually useful.</p>
 <div class="stats">
 <div class="stat"><div class="stat-num">4.5+</div><div class="stat-label">Years Experience</div></div>
 <div class="stat"><div class="stat-num">2</div><div class="stat-label">IEEE Publications</div></div>
@@ -179,7 +166,6 @@ footer{text-align:center;padding:50px 0;color:var(--muted);font-size:.88rem;bord
 <span class="skill-badge">Python</span><span class="skill-badge">Docker</span><span class="skill-badge">Kubernetes</span><span class="skill-badge">CI/CD</span><span class="skill-badge">Jenkins</span><span class="skill-badge">AWS</span><span class="skill-badge">Terraform</span><span class="skill-badge">Linux</span><span class="skill-badge">Git</span><span class="skill-badge">Selenium</span><span class="skill-badge">PyTest</span><span class="skill-badge">Machine Learning</span><span class="skill-badge">TensorFlow</span><span class="skill-badge">LangChain</span><span class="skill-badge">Prometheus</span><span class="skill-badge">Grafana</span><span class="skill-badge">Bash</span><span class="skill-badge">React</span><span class="skill-badge">Node.js</span><span class="skill-badge">SQL</span>
 </div>
 </div></section>
-
 <section id="journey"><div class="wrap section-reveal">
 <div class="label">02 / journey</div>
 <h2>My Journey</h2>
@@ -190,7 +176,6 @@ footer{text-align:center;padding:50px 0;color:var(--muted);font-size:.88rem;bord
 <div class="stage"><div class="ico">&#x1F310;</div><h3>Building</h3><span class="status s-next">Next Chapter</span><p>Targeting roles that merge DevOps reliability with AI/ML product thinking &mdash; building systems that are smart, observable, and production-grade from day one.</p><div class="chips"><span>MLOps</span><span>LLM Apps</span><span>Platform Eng</span><span>AI Infra</span></div></div>
 </div>
 </div></section>
-
 <section id="knowledge"><div class="wrap section-reveal">
 <div class="label">03 / knowledge base</div>
 <h2>What I'm Learning</h2>
@@ -204,7 +189,6 @@ footer{text-align:center;padding:50px 0;color:var(--muted);font-size:.88rem;bord
 <a href="#" class="link-card"><div class="ci">&#x1F512;</div><h4>DevSecOps</h4><p>Security scanning in CI/CD, secrets management, SAST/DAST and zero-trust principles.</p></a>
 </div>
 </div></section>
-
 <section id="connect"><div class="wrap section-reveal">
 <div class="label">04 / connect</div>
 <h2>Let's talk</h2>
@@ -212,10 +196,10 @@ footer{text-align:center;padding:50px 0;color:var(--muted);font-size:.88rem;bord
 <div class="contact-grid">
 <div class="contact-info">
 <h3>Get in touch</h3>
-<p>I'm currently open to new opportunities, freelance projects, and interesting conversations. Reach out however works for you.</p>
+<p>I'm currently open to new opportunities, freelance projects, and interesting conversations.</p>
 <div class="contact-links">
-<a href="https://github.com/itspavankalyan" target="_blank" class="contact-link"><span class="icon">&#9095;</span><span>github.com/itspavankalyan</span></a>
-<a href="https://linkedin.com/in/pavankalyan" target="_blank" class="contact-link"><span class="icon">&#9672;</span><span>LinkedIn Profile</span></a>
+<a href="https://github.com/itspavankalyan" target="_blank" class="contact-link"><span class="icon">G</span><span>github.com/itspavankalyan</span></a>
+<a href="https://linkedin.com/in/pavankalyan" target="_blank" class="contact-link"><span class="icon">in</span><span>LinkedIn Profile</span></a>
 </div>
 </div>
 <div class="contact-form">
@@ -226,80 +210,66 @@ footer{text-align:center;padding:50px 0;color:var(--muted);font-size:.88rem;bord
 </div>
 </div>
 </div></section>
-
 <footer><div class="wrap">
 <div class="footer-links">
-<a href="#about">About</a>
-<a href="#journey">Journey</a>
-<a href="#knowledge">Knowledge Base</a>
-<a href="#connect">Connect</a>
+<a href="#about">About</a><a href="#journey">Journey</a><a href="#knowledge">Knowledge Base</a><a href="#connect">Connect</a>
 <a href="https://github.com/itspavankalyan" target="_blank">GitHub</a>
 </div>
-<p>Built with &#x2665; by Pavan Kalyan K &middot; Open to Work</p>
+<p>Built with love by Pavan Kalyan K &middot; Open to Work</p>
 </div></footer>
-
 <button id="back-top" title="Back to top">&#x2191;</button>
-
 <audio id="bg-music" loop><source src="music.mp3" type="audio/mpeg" /></audio>
-
 <script>
 (function(){
-const c=document.getElementById('stars'),x=c.getContext('2d');
-const COLORS=['#3db8ff','#9b6bff','#ff9f43','#ffffff'];
-let stars=[];
-function init(){c.width=window.innerWidth;c.height=window.innerHeight;stars=Array.from({length:Math.min(140,Math.floor(c.width*c.height/12000))},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.6+0.4,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,col:COLORS[Math.floor(Math.random()*COLORS.length)]}));}
-function draw(){x.clearRect(0,0,c.width,c.height);for(let i=0;i<stars.length;i++){const s=stars[i];s.x+=s.vx;s.y+=s.vy;if(s.x<0||s.x>c.width)s.vx*=-1;if(s.y<0||s.y>c.height)s.vy*=-1;x.beginPath();x.arc(s.x,s.y,s.r,0,7);x.fillStyle=s.col;x.globalAlpha=.9;x.fill();for(let j=i+1;j<stars.length;j++){const o=stars[j],dx=s.x-o.x,dy=s.y-o.y,d=Math.hypot(dx,dy);if(d<120){x.globalAlpha=(1-d/120)*.18;x.strokeStyle=s.col;x.lineWidth=.6;x.beginPath();x.moveTo(s.x,s.y);x.lineTo(o.x,o.y);x.stroke();}}}x.globalAlpha=1;requestAnimationFrame(draw);}
-addEventListener('resize',init);init();draw();
+var c=document.getElementById('stars'),x=c.getContext('2d');
+var COLORS=['#3db8ff','#9b6bff','#ff9f43','#ffffff'],stars=[];
+function init(){c.width=window.innerWidth;c.height=window.innerHeight;stars=Array.from({length:Math.min(140,Math.floor(c.width*c.height/12000))},function(){return{x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.6+0.4,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,col:COLORS[Math.floor(Math.random()*COLORS.length)]}});}
+function draw(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<stars.length;i++){var s=stars[i];s.x+=s.vx;s.y+=s.vy;if(s.x<0||s.x>c.width)s.vx*=-1;if(s.y<0||s.y>c.height)s.vy*=-1;x.beginPath();x.arc(s.x,s.y,s.r,0,7);x.fillStyle=s.col;x.globalAlpha=.9;x.fill();for(var j=i+1;j<stars.length;j++){var o=stars[j],dx=s.x-o.x,dy=s.y-o.y,d=Math.hypot(dx,dy);if(d<120){x.globalAlpha=(1-d/120)*.18;x.strokeStyle=s.col;x.lineWidth=.6;x.beginPath();x.moveTo(s.x,s.y);x.lineTo(o.x,o.y);x.stroke();}}}x.globalAlpha=1;requestAnimationFrame(draw);}
+window.addEventListener('resize',init);init();draw();
 })();
-
-const gate=document.getElementById('gate');
-const greetEl=document.getElementById('greet');
-const audio=document.getElementById('bg-music');
-const muteBtn=document.getElementById('mute');
-let muted=false;
-const greetMap={Recruiter:'&#x1F44B; Hey, Recruiter — glad you stopped by!',Builder:'&#x1F6E0;&#xFE0F; Welcome, Builder — let's get into it.',Visitor:'&#x1F44B; Hi there — explore freely!',Adventurer:'&#x1F9ED; Adventure mode: on.'};
-
-document.querySelectorAll('.role').forEach(r=>{
-r.addEventListener('click',()=>{
-const role=r.dataset.role;
-greetEl.textContent=greetMap[role]||'Welcome!';
-gate.classList.add('hide');
-audio.play().catch(()=>{});
-muteBtn.textContent='&#x1F50A;';
+var gate=document.getElementById('gate');
+var greetEl=document.getElementById('greet');
+var audio=document.getElementById('bg-music');
+var muteBtn=document.getElementById('mute');
+var muted=false;
+var greetMap={Recruiter:'Hey Recruiter, glad you stopped by!',Builder:'Welcome Builder, lets get into it.',Visitor:'Hi there, explore freely!',Adventurer:'Adventure mode: on.'};
+document.querySelectorAll('.role').forEach(function(r){
+  r.addEventListener('click',function(){
+    var role=r.getAttribute('data-role');
+    greetEl.textContent=greetMap[role]||'Welcome!';
+    gate.classList.add('hide');
+    audio.play().catch(function(){});
+    muteBtn.textContent='Sound On';
+  });
 });
+document.getElementById('logo-home').addEventListener('click',function(e){
+  e.preventDefault();
+  gate.classList.remove('hide');
+  audio.pause();audio.currentTime=0;
+  window.scrollTo({top:0,behavior:'smooth'});
 });
-
-document.getElementById('logo-home').addEventListener('click',e=>{
-e.preventDefault();
-gate.classList.remove('hide');
-audio.pause();audio.currentTime=0;
-muteBtn.textContent='&#x1F50A;';
-window.scrollTo({top:0,behavior:'smooth'});
+muteBtn.addEventListener('click',function(){
+  muted=!muted;audio.muted=muted;
+  muteBtn.textContent=muted?'Muted':'Sound On';
 });
-
-muteBtn.addEventListener('click',()=>{muted=!muted;audio.muted=muted;muteBtn.textContent=muted?'&#x1F507;':'&#x1F50A;';});
-
-const bar=document.getElementById('progress-bar');
-const navbar=document.getElementById('navbar');
-const backTop=document.getElementById('back-top');
-const sections=document.querySelectorAll('section[id],header[id]');
-const navLinks=document.querySelectorAll('.navlinks a');
-
+var bar=document.getElementById('progress-bar');
+var navbar=document.getElementById('navbar');
+var backTop=document.getElementById('back-top');
+var sections=document.querySelectorAll('section[id],header[id]');
+var navLinks=document.querySelectorAll('.navlinks a');
 window.addEventListener('scroll',function(){
-const scrollY=window.scrollY;
-const docH=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-bar.style.width=(scrollY/docH*100)+'%';
-navbar.classList.toggle('scrolled',scrollY>60);
-backTop.classList.toggle('show',scrollY>400);
-let current='';
-sections.forEach(sec=>{if(scrollY>=sec.offsetTop-120)current=sec.id;});
-navLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+current);});
+  var scrollY=window.scrollY;
+  var docH=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  bar.style.width=(scrollY/docH*100)+'%';
+  navbar.classList.toggle('scrolled',scrollY>60);
+  backTop.classList.toggle('show',scrollY>400);
+  var current='';
+  sections.forEach(function(sec){if(scrollY>=sec.offsetTop-120)current=sec.id;});
+  navLinks.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+current);});
 },{passive:true});
-
-backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-
-const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
-document.querySelectorAll('.section-reveal').forEach(el=>observer.observe(el));
+backTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.section-reveal').forEach(function(el){observer.observe(el);});
 </script>
 </body>
 </html>
