@@ -325,6 +325,36 @@ backTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smo
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
 document.querySelectorAll('.section-reveal').forEach(function(el){observer.observe(el);});
 
+</script>
+
+<button id="ask-ai-btn" title="Ask AI about Pavan">
+  >_ ask my AI <span class="ai-dot"></span>
+</button>
+<div id="ai-panel">
+  <div class="ai-header">
+    <div>
+      <h4 style="font-family:monospace;font-size:.9rem;color:var(--blue)">&gt;_ ask my AI</h4>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:2px">Ask me anything about Pavan</p>
+    </div>
+    <button id="ai-close">&#10005;</button>
+  </div>
+  <div class="ai-messages" id="ai-messages">
+    <div class="ai-msg bot">Hey! I'm Pavan's AI. Ask me about his work, skills, or background.</div>
+  </div>
+  <div class="ai-chips" id="ai-chips">
+    <button class="ai-chip">What's his tech stack?</button>
+    <button class="ai-chip">Is he open to work?</button>
+    <button class="ai-chip">What's his background?</button>
+    <button class="ai-chip">Tell me about his projects</button>
+  </div>
+  <div class="ai-input-row">
+    <input id="ai-input" type="text" placeholder="Ask about Pavan..." autocomplete="off" />
+    <button id="ai-send">&#8594;</button>
+  </div>
+</div>
+
+
+<script>
 // ===== MOONLIGHT TOGGLE =====
 (function(){
   var themeBtn = document.getElementById('theme-toggle');
@@ -402,33 +432,6 @@ document.querySelectorAll('.section-reveal').forEach(function(el){observer.obser
     chip.addEventListener('click', function(){sendMsg(chip.textContent);});
   });
 })();
+
 </script>
-
-<button id="ask-ai-btn" title="Ask AI about Pavan">
-  >_ ask my AI <span class="ai-dot"></span>
-</button>
-<div id="ai-panel">
-  <div class="ai-header">
-    <div>
-      <h4 style="font-family:monospace;font-size:.9rem;color:var(--blue)">&gt;_ ask my AI</h4>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:2px">Ask me anything about Pavan</p>
-    </div>
-    <button id="ai-close">&#10005;</button>
-  </div>
-  <div class="ai-messages" id="ai-messages">
-    <div class="ai-msg bot">Hey! I'm Pavan's AI. Ask me about his work, skills, or background.</div>
-  </div>
-  <div class="ai-chips" id="ai-chips">
-    <button class="ai-chip">What's his tech stack?</button>
-    <button class="ai-chip">Is he open to work?</button>
-    <button class="ai-chip">What's his background?</button>
-    <button class="ai-chip">Tell me about his projects</button>
-  </div>
-  <div class="ai-input-row">
-    <input id="ai-input" type="text" placeholder="Ask about Pavan..." autocomplete="off" />
-    <button id="ai-send">&#8594;</button>
-  </div>
-</div>
-
 </body>
-</html>
