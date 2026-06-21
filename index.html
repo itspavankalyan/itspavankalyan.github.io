@@ -324,6 +324,84 @@ navLinks.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')=
 backTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
 document.querySelectorAll('.section-reveal').forEach(function(el){observer.observe(el);});
+
+// ===== MOONLIGHT TOGGLE =====
+(function(){
+  var themeBtn = document.getElementById('theme-toggle');
+  if (!themeBtn) return;
+  var isLight = localStorage.getItem('pk-theme') === 'light';
+  if(isLight){document.body.classList.add('light-mode');themeBtn.textContent='🌙';}
+  themeBtn.addEventListener('click', function(){
+    isLight = !isLight;
+    document.body.classList.toggle('light-mode', isLight);
+    themeBtn.textContent = isLight ? '🌙' : '☀️';
+    localStorage.setItem('pk-theme', isLight ? 'light' : 'dark');
+  });
+})();
+
+// ===== ASK AI =====
+(function(){
+  var btn = document.getElementById('ask-ai-btn');
+  var panel = document.getElementById('ai-panel');
+  var closeBtn = document.getElementById('ai-close');
+  var msgs = document.getElementById('ai-messages');
+  var input = document.getElementById('ai-input');
+  var send = document.getElementById('ai-send');
+  var chips = document.querySelectorAll('.ai-chip');
+  if (!btn || !panel) return;
+
+  var KB = {
+    role: 'Engineer with 4.5+ years in quality engineering, now focusing on DevOps and AI/ML.',
+    stack: 'Python, Selenium, PyTest, Playwright, JMeter, CI/CD, Docker, Kubernetes, AWS, Terraform.',
+    bg: '4.5+ years in software testing and QA — automation frameworks, performance suites, CI pipelines.',
+    learn: 'DevOps (Docker, Kubernetes, AWS, Terraform), AI/ML fundamentals, LLM apps, MLOps.',
+    open: 'Yes! Pavan is open to opportunities in DevOps, QA automation, and AI/ML engineering.',
+    contact: 'GitHub: github.com/itspavankalyan | LinkedIn: linkedin.com/in/k-pavan-kalyan',
+    projects: 'Containerisation, Cloud & AWS, AI/ML basics, Performance Testing, CI/CD Pipelines, Observability.',
+    journey: 'QA foundations → Exploring DevOps → Building toward AI/ML & Platform Engineering.'
+  };
+
+  function getReply(q){
+    q = q.toLowerCase();
+    if(/stack|tech|skill|python|docker|aws|tool|language/.test(q)) return 'Stack: '+KB.stack;
+    if(/open|work|hire|job|opportunit|availabl/.test(q)) return KB.open;
+    if(/contact|reach|email|github|linkedin/.test(q)) return KB.contact;
+    if(/background|experience|year|history|career/.test(q)) return KB.bg;
+    if(/learn|study|exploring|current|now/.test(q)) return 'Currently learning: '+KB.learn;
+    if(/project|portfolio|work|build/.test(q)) return 'Projects: '+KB.projects;
+    if(/journey|path|plan|next|future/.test(q)) return KB.journey;
+    if(/who|name|pavan|about/.test(q)) return KB.role;
+    return "Ask about Pavan's tech stack, background, projects, or availability!";
+  }
+
+  function addMsg(text, type){
+    var d = document.createElement('div');
+    d.className = 'ai-msg '+type;
+    d.textContent = text;
+    msgs.appendChild(d);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function sendMsg(q){
+    if(!q.trim()) return;
+    addMsg(q, 'user');
+    input.value = '';
+    var t = document.createElement('div');
+    t.className = 'ai-msg bot typing';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    msgs.appendChild(t);
+    msgs.scrollTop = msgs.scrollHeight;
+    setTimeout(function(){t.remove();addMsg(getReply(q),'bot');},600);
+  }
+
+  btn.addEventListener('click', function(){panel.classList.toggle('open');});
+  closeBtn.addEventListener('click', function(){panel.classList.remove('open');});
+  send.addEventListener('click', function(){sendMsg(input.value);});
+  input.addEventListener('keydown', function(e){if(e.key==='Enter')sendMsg(input.value);});
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){sendMsg(chip.textContent);});
+  });
+})();
 </script>
 
 <button id="ask-ai-btn" title="Ask AI about Pavan">
